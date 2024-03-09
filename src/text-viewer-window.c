@@ -22,29 +22,28 @@
 
 #include "text-viewer-window.h"
 
-struct _TextViewerWindow
-{
-	AdwApplicationWindow  parent_instance;
+struct _TextViewerWindow {
+  AdwApplicationWindow parent_instance;
 
-	/* Template widgets */
-	AdwHeaderBar        *header_bar;
-	GtkLabel            *label;
+  /* Template widgets */
+  AdwHeaderBar *header_bar;
+  GtkTextView *main_text_view;
 };
 
-G_DEFINE_FINAL_TYPE (TextViewerWindow, text_viewer_window, ADW_TYPE_APPLICATION_WINDOW)
+G_DEFINE_FINAL_TYPE(TextViewerWindow, text_viewer_window,
+                    ADW_TYPE_APPLICATION_WINDOW)
 
-static void
-text_viewer_window_class_init (TextViewerWindowClass *klass)
-{
-	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+static void text_viewer_window_class_init(TextViewerWindowClass *klass) {
+  GtkWidgetClass *widget_class = GTK_WIDGET_CLASS(klass);
 
-	gtk_widget_class_set_template_from_resource (widget_class, "/com/example/TextViewer/text-viewer-window.ui");
-	gtk_widget_class_bind_template_child (widget_class, TextViewerWindow, header_bar);
-	gtk_widget_class_bind_template_child (widget_class, TextViewerWindow, label);
+  gtk_widget_class_set_template_from_resource(
+      widget_class, "/com/example/TextViewer/text-viewer-window.ui");
+  gtk_widget_class_bind_template_child(widget_class, TextViewerWindow,
+                                       header_bar);
+  gtk_widget_class_bind_template_child(widget_class, TextViewerWindow,
+                                       main_text_view);
 }
 
-static void
-text_viewer_window_init (TextViewerWindow *self)
-{
-	gtk_widget_init_template (GTK_WIDGET (self));
+static void text_viewer_window_init(TextViewerWindow *self) {
+  gtk_widget_init_template(GTK_WIDGET(self));
 }
