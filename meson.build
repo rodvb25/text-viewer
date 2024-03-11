@@ -59,6 +59,7 @@ test_c_args = [
   '-Wno-missing-field-initializers',
   '-Wno-sign-compare',
   '-Wno-unused-parameter',
+  '-Wno-declaration-after-statement',
   '-Wold-style-definition',
   '-Wpointer-arith',
   '-Wredundant-decls',
