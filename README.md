@@ -1,3 +1,3 @@
-# text-viewer
+# Text Viewer
 
-A description of this project.
+A text editor made following the GNOME beginners tutorial
