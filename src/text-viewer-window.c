@@ -89,18 +89,18 @@ static void open_file_complete(GObject *source_object, GAsyncResult *result,
 }
 
 static void open_file(TextViewerWindow *self, GFile *file) {
-  g_file_load_contents_async(file, NULL, (GAsyncReadyCallback)open_file_complete,
-                          self);
+  g_file_load_contents_async(file, NULL,
+                             (GAsyncReadyCallback)open_file_complete, self);
 }
 
 static void on_open_response(GObject *source, GAsyncResult *result,
                              gpointer user_data) {
   GtkFileDialog *dialog = GTK_FILE_DIALOG(source);
-  TextViewer *self = user_data;
+  TextViewerWindow *self = user_data;
 
   g_autoptr(GFile) file = gtk_file_dialog_open_finish(dialog, result, NULL);
 
-  // if the user selected a file, open it
+  // If the user selected a file, open it
   if (file != NULL) {
     open_file(self, file);
   }
