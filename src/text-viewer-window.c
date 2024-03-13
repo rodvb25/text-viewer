@@ -48,12 +48,13 @@ static void open_file_complete(GObject *source_object, GAsyncResult *result,
   // give you the contents of the file as a byte array, or will
   // set the error argument
   g_file_load_contents_finish(file, result, &contents, &length, NULL, &error);
+
   g_autofree char *display_name = NULL;
   g_autoptr(GFileInfo) info = g_file_query_info(
-      file, "standard::display_name", G_FILE_QUERY_INFO_NONE, NULL, NULL);
+      file, "standard::display-name", G_FILE_QUERY_INFO_NONE, NULL, NULL);
   if (info != NULL) {
     display_name = g_strdup(
-        g_file_info_get_attribute_string(info, "standard::display_name"));
+        g_file_info_get_attribute_string(info, "standard::display-name"));
   } else {
     display_name = g_file_get_basename(file);
   }
