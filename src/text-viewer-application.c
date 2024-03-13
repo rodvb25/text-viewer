@@ -97,4 +97,7 @@ static void text_viewer_application_init(TextViewerApplication *self) {
                                         (const char *[]){"<primary>q", NULL});
   gtk_application_set_accels_for_action(GTK_APPLICATION(self), "win.open",
                                         (const char *[]){"<Ctrl>o", NULL});
+  gtk_application_set_accels_for_action(
+      GTK_APPLICATION(self), "win.save-as",
+      (const char *[]){"<Ctrl><Shift>s", NULL});
 }
